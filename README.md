@@ -19,55 +19,52 @@
     <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
   <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
 </p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+ // PROJETO FEITO EM AMBIENTE WINDOWS // OS: Windows 11 (23h2)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Esse é um projeto feito em Node, junto com NestJs e Express.
+Banco de dados utilizado: PostgreSQL
+Ferramenta de Caching utilizada: Redis
 
-## Installation
+Para roda-lo, você precisará ter de preferencia a IDE: VSCode. Instalado o Node.js, você pode obtê-lo através desse link: https://nodejs.org/en/download/package-manager
 
-```bash
-$ yarn install
-```
+Após já ter todos os requisitos acima, você irá clonar o repositório no seu computador local e abrir a pasta do repositório pelo VSCode.
 
-## Running the app
+O primeiro comando que você irá usar é o: npm install --global yarn (CASO VOCÊ AINDA NÃO TENHA, SE JÁ TIVER, DESCONSIDERAR)
 
-```bash
-# development
-$ yarn run start
+Porque usaremos o yarn para instalar os packages nesse projeto.
 
-# watch mode
-$ yarn run start:dev
+Agora você precisará configurar um banco de dados localmente, terá que ser usado o PostgreSQL.
+Na repositório encontrará uma pasta chamada "backup_db", você irá pegar esse arquivo de backup e restaurar no PostgreSQL.
+Lembrando para alterar porta, usuário e senha é no arquivo chamado:
+app.module.ts
 
-# production mode
-$ yarn run start:prod
-```
+encontra-se em src/app.module.ts
 
-## Test
+Agora para rodar o Redis no Windows, você irá precisa ter o WSL.
 
-```bash
-# unit tests
-$ yarn run test
+Para isso você ira abrir o terminal PowerShell e digitar o seguinte comando:
 
-# e2e tests
-$ yarn run test:e2e
+wsl --install
 
-# test coverage
-$ yarn run test:cov
-```
+Caso peça para reiniciar a máquina, reinicie.
 
-## Support
+Após ter reiniciado a máquina, o terminal irá abrir sozinho e pedirá pra você escolher um usuário e uma senha pro Linux.
+Após isso você já poderá usar o terminal Linux e instalar o redis.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Faça os seguintes comandos:
+sudo apt-get update
+sudo apt-get install redis-server
 
-## Stay in touch
+Você irá iniciar o redis:
+sudo service redis-server start
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+E testará se ele está rodando:
+redis-cli ping
+Caso responda PONG é porque está rodando!
 
-## License
+Após isso na pasta raiz do projeto, você irá dar o próximo comando que é: yarn install
 
-Nest is [MIT licensed](LICENSE).
+Esse comando fará com que todos os packages necessários para o projeto rodar sejam instalados. Após isso para rodar o projeto deverá digitar o seguinte comando: yarn start
+
+Após isso poderá testar o projeto. Para encerra-lo, através do terminal aperte CTRL + C.
